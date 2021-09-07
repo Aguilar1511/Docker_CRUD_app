@@ -1,0 +1,106 @@
+[{
+  "_id": {
+    "$oid": "611e42f9d0ceb8d7fc41cfaf"
+  },
+  "dish_name": "noodles",
+  "dish_description": "chinese dish",
+  "allrestaurants": [
+    {
+      "$oid": "611e3fab0ffc0ac425568bc1"
+    }
+  ],
+  "order_details": [
+    {
+      "$oid": "611e4975d0ceb8d7fc41cfb9"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "611e4344d0ceb8d7fc41cfb0"
+  },
+  "dish_name": "manchurian",
+  "dish_description": "cheese balls in soy sauce curry",
+  "allrestaurants": [
+    {
+      "$oid": "611e3fab0ffc0ac425568bc1"
+    },
+    {
+      "$oid": "611e3fab0ffc0ac425568bc2"
+    }
+  ],
+  "order_details": [
+    {
+      "$oid": "611e4a59d0ceb8d7fc41cfba"
+    },
+    {
+      "$oid": "611e4975d0ceb8d7fc41cfb9"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "611e4377d0ceb8d7fc41cfb1"
+  },
+  "dish_name": "burger",
+  "dish_description": "fried patty inside a bun",
+  "allrestaurants": [
+    {
+      "$oid": "611e3fab0ffc0ac425568bc2"
+    },
+    {
+      "$oid": "611e3fab0ffc0ac425568bc4"
+    }
+  ],
+  "order_details": [
+    {
+      "$oid": "611e4a59d0ceb8d7fc41cfba"
+    },
+    {
+      "$oid": "611e4a98d0ceb8d7fc41cfbb"
+    },
+    {
+      "$oid": "611e4b35d0ceb8d7fc41cfbd"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "611e43bcd0ceb8d7fc41cfb2"
+  },
+  "dish_description": "lemon fizzy drink",
+  "dish_name": "mojito",
+  "allrestaurants": [
+    {
+      "$oid": "611e3fab0ffc0ac425568bc3"
+    },
+    {
+      "$oid": "611e3fab0ffc0ac425568bc4"
+    }
+  ],
+  "order_details": [
+    {
+      "$oid": "611e4a98d0ceb8d7fc41cfbb"
+    },
+    {
+      "$oid": "611e4ad7d0ceb8d7fc41cfbc"
+    },
+    {
+      "$oid": "611e4b35d0ceb8d7fc41cfbd"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "611e441dd0ceb8d7fc41cfb3"
+  },
+  "dish_name": "oreo shake",
+  "dish_description": "milky crunchy thick beverage",
+  "allrestaurants": {
+    "$oid": "611e3fab0ffc0ac425568bc3"
+  },
+  "order_details": [
+    {
+      "$oid": "611e4ad7d0ceb8d7fc41cfbc"
+    },
+    {
+      "$oid": "611e4ad7d0ceb8d7fc41cfbd"
+    }
+  ]
+}]

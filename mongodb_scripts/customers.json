@@ -1,0 +1,91 @@
+[{
+  "_id": {
+    "$oid": "611e400d0ffc0ac425568bc5"
+  },
+  "customer_name": "tom",
+  "customer_email": "tom01@gmail.com",
+  "customer_address": "T-10 harper strret,mumbai",
+  "customer_contact_number": 9897123909,
+  "allorders": [
+    {
+      "$oid": "611e4975d0ceb8d7fc41cfb9"
+    },
+    {
+      "$oid": "611e4a59d0ceb8d7fc41cfba"
+    }
+  ],
+  "visits_restro": [
+    {
+      "$oid": "611e3fab0ffc0ac425568bc2"
+    },
+    {
+      "$oid": "611e3fab0ffc0ac425568bc3"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "611e400d0ffc0ac425568bc6"
+  },
+  "customer_name": "alice",
+  "customer_email": "alisha02@gmail.com",
+  "customer_address": "C-11 X2 dilshad garden,delhi",
+  "customer_contact_number": 7009540635,
+  "allorders": [
+    {
+      "$oid": "611e4a98d0ceb8d7fc41cfbb"
+    }
+  ],
+  "visits_restro": [
+    {
+      "$oid": "611e3fab0ffc0ac425568bc3"
+    },
+    {
+      "$oid": "611e3fab0ffc0ac425568bc4"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "611e400d0ffc0ac425568bc7"
+  },
+  "customer_name": "john",
+  "customer_email": "john04@gmail.com",
+  "customer_address": "X-23 Newark lane11,oregon",
+  "customer_contact_number": 4137868756,
+  "allorders": [
+    {
+      "$oid": "611e4ad7d0ceb8d7fc41cfbc"
+    }
+  ],
+  "visits_restro": [
+    {
+      "$oid": "611e3fab0ffc0ac425568bc2"
+    },
+    {
+      "$oid": "611e3fab0ffc0ac425568bc3"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "611e400d0ffc0ac425568bc8"
+  },
+  "customer_name": "ram",
+  "customer_email": "ram03@gmail.com",
+  "customer_address": "E-102 sai lok,dehradun",
+  "customer_contact_number": 4135689654,
+  "allorders": [
+    {
+      "$oid": "611e4b35d0ceb8d7fc41cfbd"
+    }
+  ],
+  "visits_restro": [
+    {
+      "$oid": "611e3fab0ffc0ac425568bc1"
+    },
+    {
+      "$oid": "611e3fab0ffc0ac425568bc4"
+    },
+    {
+      "$oid": "611e3fab0ffc0ac425568bc3"
+    }
+  ]
+}]

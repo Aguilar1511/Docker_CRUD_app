@@ -1,0 +1,124 @@
+[{
+  "_id": {
+    "$oid": "611e3fab0ffc0ac425568bc1"
+  },
+  "restaurant_name": "dominos",
+  "restaurant_email": "dominos01@co.in",
+  "restaurant_address": "shastri park",
+  "restaurant_contact_number": 3328889999,
+  "allwaiters": [
+    {
+      "$oid": "611e45ddd0ceb8d7fc41cfb4"
+    }
+  ],
+  "dishes": [
+    {
+      "$oid": "611e42f9d0ceb8d7fc41cfaf"
+    },
+    {
+      "$oid": "611e4344d0ceb8d7fc41cfb0"
+    }
+  ],
+  "clients_list": [
+    {
+      "$oid": "611e400d0ffc0ac425568bc8"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "611e3fab0ffc0ac425568bc2"
+  },
+  "restaurant_name": "pizzahut",
+  "restaurant_email": "pizzahut02@co.in",
+  "restaurant_address": "nehru place,delhi",
+  "restaurant_contact_number": 3345677777,
+  "allwaiters": [
+    {
+      "$oid": "611e45ddd0ceb8d7fc41cfb5"
+    },
+    {
+      "$oid": "611e45ddd0ceb8d7fc41cfb6"
+    }
+  ],
+  "alldishes": [
+    {
+      "$oid": "611e4344d0ceb8d7fc41cfb0"
+    },
+    {
+      "$oid": "611e4377d0ceb8d7fc41cfb1"
+    }
+  ],
+  "clients_list": [
+    {
+      "$oid": "611e400d0ffc0ac425568bc5"
+    },
+    {
+      "$oid": "611e400d0ffc0ac425568bc7"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "611e3fab0ffc0ac425568bc3"
+  },
+  "restaurant_name": "papajohn",
+  "restaurant_email": "papajohn03@co.in",
+  "restaurant_address": "near ito bridge,delhi",
+  "restaurant_contact_number": 2555600000,
+  "allwaiters": [
+    {
+      "$oid": "611e47bed0ceb8d7fc41cfb7"
+    }
+  ],
+  "alldishes": [
+    {
+      "$oid": "611e43bcd0ceb8d7fc41cfb2"
+    },
+    {
+      "$oid": "611e43bcd0ceb8d7fc41cfb3"
+    }
+  ],
+  "clients_list": [
+    {
+      "$oid": "611e400d0ffc0ac425568bc5"
+    },
+    {
+      "$oid": "611e400d0ffc0ac425568bc6"
+    },
+    {
+      "$oid": "611e400d0ffc0ac425568bc7"
+    },
+    {
+      "$oid": "611e400d0ffc0ac425568bc8"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "611e3fab0ffc0ac425568bc4"
+  },
+  "restaurant_name": "mamagoto",
+  "restaurant_email": "mamagoto04@co.in",
+  "restaurant_address": "connaught place circle,delhi",
+  "restaurant_contact_number": 5553332222,
+  "allwaiters": {
+    "$oid": "611e45ddd0ceb8d7fc41cfb8"
+  },
+  "alldishes": [
+    {
+      "$oid": "611e43bcd0ceb8d7fc41cfb2"
+    },
+    {
+      "$oid": "611e43bcd0ceb8d7fc41cfb1"
+    },
+    {
+      "$oid": "611e43bcd0ceb8d7fc41cfb3"
+    }
+  ],
+  "clients_list": [
+    {
+      "$oid": "611e400d0ffc0ac425568bc8"
+    },
+    {
+      "$oid": "611e400d0ffc0ac425568bc6"
+    }
+  ]
+}]

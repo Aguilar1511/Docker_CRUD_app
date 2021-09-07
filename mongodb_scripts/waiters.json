@@ -1,0 +1,41 @@
+[{
+  "_id": {
+    "$oid": "611e4537d0ceb8d7fc41cfb4"
+  },
+  "waiter_name": "Ron",
+  "waiter_phone_number": 9897654321,
+  "waiter_salary": 15000,
+  "waiter_address": "greenview 101 shastri park"
+},{
+  "_id": {
+    "$oid": "611e45ddd0ceb8d7fc41cfb5"
+  },
+  "waiter_name": "aman",
+  "waiter_phone_number": 9897654321,
+  "waiter_salary": 14000,
+  "waiter_address": "x-1 adarsh street nehru place"
+},{
+  "_id": {
+    "$oid": "611e465ed0ceb8d7fc41cfb6"
+  },
+  "waiter_name": "george",
+  "waiter_phone_": 7412562889,
+  "waiter_salary": 16000,
+  "waiter_address": "r-301 sagarmarg,chandni chowk"
+},{
+  "_id": {
+    "$oid": "611e47bed0ceb8d7fc41cfb7"
+  },
+  "waiter_name": "mary",
+  "waiter_phone_number": 8145997650,
+  "waiter_salary": 20000,
+  "waiter_address": "h 56 albert lane,boriveli"
+},{
+  "_id": {
+    "$oid": "611e4856d0ceb8d7fc41cfb8"
+  },
+  "waiter_name": "tom",
+  "waiter_phone_number": 9897453421,
+  "waiter_salary": 21000,
+  "waiter_address": "q303 tragalgar apartments,gandhi marg delhi"
+}]

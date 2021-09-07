@@ -1,0 +1,89 @@
+[{
+  "_id": {
+    "$oid": "611e4975d0ceb8d7fc41cfb9"
+  },
+  "order_date": {
+    "$date": "2021-08-21T18:30:00Z"
+  },
+  "order_value": 1000,
+  "order_status": "completed",
+  "dish_details": [
+    {
+      "$oid": "611e42f9d0ceb8d7fc41cfaf"
+    },
+    {
+      "$oid": "611e4344d0ceb8d7fc41cfb0"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "611e4a59d0ceb8d7fc41cfba"
+  },
+  "order_date": {
+    "$date": "2021-08-22T18:30:00Z"
+  },
+  "order_value": 1500,
+  "order_status": "completed",
+  "dish_details": [
+    {
+      "$oid": "611e4344d0ceb8d7fc41cfb0"
+    },
+    {
+      "$oid": "611e4344d0ceb8d7fc41cfb1"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "611e4a98d0ceb8d7fc41cfbb"
+  },
+  "order_date": {
+    "$date": "2021-08-15T18:30:00Z"
+  },
+  "order_value": 1780,
+  "order_status": "completed",
+  "dish_details": [
+    {
+      "$oid": "611e4344d0ceb8d7fc41cfb1"
+    },
+    {
+      "$oid": "611e4344d0ceb8d7fc41cfb2"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "611e4ad7d0ceb8d7fc41cfbc"
+  },
+  "order_date": {
+    "$date": "2021-08-18T18:30:00Z"
+  },
+  "order_value": 250,
+  "order_status": "pending",
+  "dish_details": [
+    {
+      "$oid": "611e43bcd0ceb8d7fc41cfb2"
+    },
+    {
+      "$oid": "611e43bcd0ceb8d7fc41cfb3"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "611e4b35d0ceb8d7fc41cfbd"
+  },
+  "order_date": {
+    "$date": "2021-09-18T18:30:00Z"
+  },
+  "order_value": 650,
+  "order_status": "pending",
+  "dish_details": [
+    {
+      "$oid": "611e43bcd0ceb8d7fc41cfb1"
+    },
+    {
+      "$oid": "611e43bcd0ceb8d7fc41cfb2"
+    },
+    {
+      "$oid": "611e43bcd0ceb8d7fc41cfb3"
+    }
+  ]
+}]
