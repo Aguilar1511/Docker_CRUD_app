@@ -1,0 +1,15 @@
+version: '3.1'
+services: 
+  nodeapp:
+    build :
+      context: .
+      args:
+        NODE_ENV: development
+    volumes:
+    - ./:/app
+    - /app/node_modules
+    - C:\Users\Yantra\Desktop\i am useful\db_scripts:/data/db
+    environment: 
+    - NODE_ENV=development
+    command: npm run dev
+  
