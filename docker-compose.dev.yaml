@@ -11,5 +11,15 @@ services:
     - C:\Users\Yantra\Desktop\i am useful\db_scripts:/data/db
     environment: 
     - NODE_ENV=development
+    - MONGO_USER=shivam
+    - MONGO_PASSWORD=mypasswd
+    - SESSION_SECRET=secret
     command: npm run dev
+  mongo:
+    environment: 
+     - MONGO_INITDB_ROOT_USERNAME=shivam
+     - MONGO_INITDB_ROOT_PASSWORD=mypasswd
+    ports: 
+    - "27017:27017"
+  
   

@@ -1,20 +1,19 @@
 'use strict';
 
-var mongoose= require('mongoose');
-
+var mongoose = require("mongoose")
 
 var userSchema = new mongoose.Schema({
 	username:{
-        type: string,
+        type: String,
         require: [true,'User must have a username'],
         unique: true,
 
     },
     password: {
-        type: string,
+        type: String,
         require:[true,"User must have a password"]
     }
 	
 });
 
-module.exports = mongoose.model('User',UserSchema);
+module.exports = mongoose.model('User',userSchema);

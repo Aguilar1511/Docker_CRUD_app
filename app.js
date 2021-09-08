@@ -1,16 +1,51 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var Restaurants = require('./Restaurants.model');
-var Customer    = require('./Customer.model');
-var Order       = require('./Order.model');
-var Waiter      = require('./Waiter.model');
-var Dish        = require('./Dish.model')
+var Restaurants = require('./js_files/Restaurants.model');
+var Customer    = require('./js_files/Customer.model');
+var Order       = require('./js_files/Order.model');
+var Waiter      = require('./js_files/Waiter.model');
+var Dish        = require('./js_files/Dish.model');
+var redis = require('redis')
+var session = require('express-session')
+let RedisStore = require('connect-redis')(session)
+let redisClient = redis.createClient({
+    host: 'redis',
+    port: 6379,
+})
+
+
+
+var userRouter = require("./Routes/userRoutes.js")
+var { 
+    MONGO_IP,
+    MONGO_USER,
+    MONGO_PORT,
+    MONGO_PASSWORD,
+    REDIS_URL,
+    REDIS_PORT,
+    SESSION_SECRET } = require("./config/config");
 
 var app = express();
 
-mongoose.connect("mongodb://shivam:mypasswd@mongo:27017/rms?authSource=admin").
-then(() => console.log("successfully connected to db"))
+app.use(session({
+    store: new RedisStore({client:redisClient}),
+    secret: 'qwerty',
+    cookie: {
+        secure: false,
+        resave: false,
+        saveUninitialized: false,
+        httpOnly: true,
+        maxAge: 30000
+    }
+}))
+
+app.use(express.json());
+
+
+
+ mongoose.connect('mongodb://shivam:mypasswd@mongo:27017/rms?authSource=admin')
+.then(() => console.log("successfully connected to db"))
 .catch((e) => console.log(e));
 
 
@@ -193,7 +228,6 @@ newCustomer.save(function(err,customer)
 )
 }
 )
-
 
 app.put('/customers/:id',function(req,res)
 {
@@ -541,7 +575,7 @@ app.delete('/dishes/:id',function(req,res)
     )
 }
 )
-
+app.use("/api/v1/users", userRouter);
 
 app.listen(port, function()
 	{
