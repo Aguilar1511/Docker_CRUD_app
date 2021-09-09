@@ -17,16 +17,11 @@ let redisClient = redis.createClient({
 
 
 var userRouter = require("./Routes/userRoutes.js")
-var { 
-    MONGO_IP,
-    MONGO_USER,
-    MONGO_PORT,
-    MONGO_PASSWORD,
-    REDIS_URL,
-    REDIS_PORT,
-    SESSION_SECRET } = require("./config/config");
+
 
 var app = express();
+
+app.enable("trust proxy");
 
 app.use(session({
     store: new RedisStore({client:redisClient}),
@@ -42,24 +37,23 @@ app.use(session({
 
 app.use(express.json());
 
-
-
- mongoose.connect('mongodb://shivam:mypasswd@mongo:27017/rms?authSource=admin')
+ mongoose.connect("mongodb://shivam:mypasswd@mongo:27017/rms?authSource=admin")
 .then(() => console.log("successfully connected to db"))
 .catch((e) => console.log(e));
 
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 3000;
 
 
-app.get('/', function(req,res)
+app.get('/api', function(req,res)
 	{
 	res.send('<h2>Welcome to the restaurant management system</h2>')
+    console.log("yeah it runs");
 	});
 
     // Routes for Restaurants model
 
-app.get('/restaurants',function(req,res)
+app.get('/api/restaurants',function(req,res)
 {
 	console.log("getting all the restaurants");
 	Restaurants.find({})
@@ -77,7 +71,7 @@ app.get('/restaurants',function(req,res)
 })
 });
 
-app.get('/restaurants/:id',function(req,res)
+app.get('/api/restaurants/:id',function(req,res)
 	{
 		console.log("getting one restaurant");
 		Restaurants.findOne({_id:req.params.id})
@@ -95,7 +89,7 @@ app.get('/restaurants/:id',function(req,res)
 )
 
 
-app.post('/restaurants',function(req,res)
+app.post('/api/restaurants',function(req,res)
 	{
 		var newRestaurants = new Restaurants();           
 	newRestaurants.restaurant_name = req.body.restaurant_name;
@@ -122,7 +116,7 @@ app.post('/restaurants',function(req,res)
 
 
 
-app.put('/restaurants/:id',function(req,res)
+app.put('/api/restaurants/:id',function(req,res)
 	{
 
         Restaurants.findOneAndUpdate({
@@ -142,7 +136,7 @@ app.put('/restaurants/:id',function(req,res)
 });
 
 
-app.delete('/restaurants/:id',function(req,res)
+app.delete('/api/restaurants/:id',function(req,res)
 {
 	Restaurants.findOneAndRemove({
 		_id:req.params.id},function(err,Restaurants)
@@ -164,7 +158,7 @@ app.delete('/restaurants/:id',function(req,res)
 
 // routes for Customer model
 
-app.get('/customers',function(req,res)
+app.get('/api/customers',function(req,res)
 {
     console.log("getting all customers");
     Customer.find({})
@@ -185,7 +179,7 @@ app.get('/customers',function(req,res)
 )
 
 
-app.get('/customers/:id',function(req,res)
+app.get('/api/customers/:id',function(req,res)
 {
     console.log("getting a single customer")
     Customer.findOne({_id:req.params.id})
@@ -204,7 +198,7 @@ app.get('/customers/:id',function(req,res)
 }
 )
 
-app.post('/customer',function(req,res)
+app.post('/api/customer',function(req,res)
 {
 var newCustomer = new Customer();
 newCustomer.customer_name = req.body.customer_name;
@@ -229,7 +223,7 @@ newCustomer.save(function(err,customer)
 }
 )
 
-app.put('/customers/:id',function(req,res)
+app.put('/api/customers/:id',function(req,res)
 {
 Customer.findOneAndUpdate({_id:req.params.id},
     {$set:{customer_email:req.body.customer_email,customer_address:req.body.customer_address}},
@@ -249,7 +243,7 @@ Customer.findOneAndUpdate({_id:req.params.id},
 }
 )
 
-app.delete('/customers/:id',function(req,res)
+app.delete('/api/customers/:id',function(req,res)
 {
     Customer.findOneAndRemove({_id:req.params.id},function(err,Customer)
     {
@@ -268,7 +262,7 @@ app.delete('/customers/:id',function(req,res)
 
 // routes for Order model
 
-app.get('/orders',function(req,res)
+app.get('/api/orders',function(req,res)
 {
     console.log("getting all orders");
     Order.find({})
@@ -289,7 +283,7 @@ app.get('/orders',function(req,res)
 )
 
 
-app.get('/orders/:id',function(req,res)
+app.get('/api/orders/:id',function(req,res)
 {
     console.log("getting a single order")
     Order.findOne({_id:req.params.id})
@@ -308,7 +302,7 @@ app.get('/orders/:id',function(req,res)
 }
 )
 
-app.post('/order',function(req,res)
+app.post('/api/order',function(req,res)
 {
 var newOrder = new Order();
 newOrder.order_date = req.body.order_date;
@@ -332,7 +326,7 @@ newOrder.save(function(err,order)
 )
 
 
-app.put('/orders/:id',function(req,res)
+app.put('/api/orders/:id',function(req,res)
 {
 Order.findOneAndUpdate({_id:req.params.id},
     {$set:{order_status:req.body.order_status}},
@@ -352,7 +346,7 @@ Order.findOneAndUpdate({_id:req.params.id},
 }
 )
 
-app.delete('/orders/:id',function(req,res)
+app.delete('/api/orders/:id',function(req,res)
 {
     Order.findOneAndRemove({_id:req.params.id},function(err,Order)
     {
@@ -372,7 +366,7 @@ app.delete('/orders/:id',function(req,res)
 
 // routes for Waiter model
 
-app.get('/waiters',function(req,res)
+app.get('/api/waiters',function(req,res)
 {
     console.log("getting all waiters");
     Waiter.find({})
@@ -393,7 +387,7 @@ app.get('/waiters',function(req,res)
 )
 
 
-app.get('/waiters/:id',function(req,res)
+app.get('/api/waiters/:id',function(req,res)
 {
     console.log("getting a single waiter")
     Waiter.findOne({_id:req.params.id})
@@ -412,7 +406,7 @@ app.get('/waiters/:id',function(req,res)
 }
 )
 
-app.post('/waiter',function(req,res)
+app.post('/api/waiter',function(req,res)
 {
 var newWaiter = new Waiter();
 newWaiter.waiter_name = req.body.waiter_name;
@@ -436,7 +430,7 @@ newWaiter.save(function(err,waiter)
 )
 
 
-app.put('/waiters/:id',function(req,res)
+app.put('/api/waiters/:id',function(req,res)
 {
 Waiter.findOneAndUpdate({_id:req.params.id},
     {$set:{waiter_salary:req.body.waiter_salary,waiter_address:req.body.waiter_address}},
@@ -456,7 +450,7 @@ Waiter.findOneAndUpdate({_id:req.params.id},
 }
 )
 
-app.delete('/waiters/:id',function(req,res)
+app.delete('/api/waiters/:id',function(req,res)
 {
     Waiter.findOneAndRemove({_id:req.params.id},function(err,Waiter)
     {
@@ -475,7 +469,7 @@ app.delete('/waiters/:id',function(req,res)
 
 // routes for Dish model
 
-app.get('/dishes',function(req,res)
+app.get('/api/dishes',function(req,res)
 {
     console.log("getting all dishes");
     Dish.find({})
@@ -496,7 +490,7 @@ app.get('/dishes',function(req,res)
 )
 
 
-app.get('/dishes/:id',function(req,res)
+app.get('/api/dishes/:id',function(req,res)
 {
     console.log("getting a single dish")
     Dish.findOne({_id:req.params.id})
@@ -515,7 +509,7 @@ app.get('/dishes/:id',function(req,res)
 }
 )
 
-app.post('/dish',function(req,res)
+app.post('/api/dish',function(req,res)
 {
 var newDish = new Dish();
 newDish.dish_name = req.body.dish_name;
@@ -539,7 +533,7 @@ newDish.save(function(err,dish)
 )
 
 
-app.put('/dishes/:id',function(req,res)
+app.put('/api/dishes/:id',function(req,res)
 {
 Dish.findOneAndUpdate({_id:req.params.id},
     {$set:{dish_description:req.body.dish_description}},
@@ -559,7 +553,7 @@ Dish.findOneAndUpdate({_id:req.params.id},
 }
 )
 
-app.delete('/dishes/:id',function(req,res)
+app.delete('/api/dishes/:id',function(req,res)
 {
     Dish.findOneAndRemove({_id:req.params.id},function(err,Dish)
     {
