@@ -9,14 +9,16 @@ var Dish        = require('./js_files/Dish.model');
 var redis = require('redis')
 var session = require('express-session')
 let RedisStore = require('connect-redis')(session)
+
+
+
+
+var userRouter = require("./Routes/userRoutes.js");
+const { MONGO_IP, MONGO_USER, MONGO_PORT, SESSION_SECRET, REDIS_URL, REDIS_PORT, MONGO_PASSWORD } = require('./config/config');
 let redisClient = redis.createClient({
-    host: 'redis',
-    port: 6379,
+    host: REDIS_URL,
+    port: REDIS_PORT,
 })
-
-
-
-var userRouter = require("./Routes/userRoutes.js")
 
 
 var app = express();
@@ -25,19 +27,19 @@ app.enable("trust proxy");
 
 app.use(session({
     store: new RedisStore({client:redisClient}),
-    secret: 'qwerty',
+    secret: SESSION_SECRET,
     cookie: {
         secure: false,
         resave: false,
         saveUninitialized: false,
         httpOnly: true,
-        maxAge: 30000
+        maxAge: 300000
     }
 }))
 
 app.use(express.json());
 
- mongoose.connect("mongodb://shivam:mypasswd@mongo:27017/rms?authSource=admin")
+ mongoose.connect(`mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/rms?authSource=admin`)
 .then(() => console.log("successfully connected to db"))
 .catch((e) => console.log(e));
 
