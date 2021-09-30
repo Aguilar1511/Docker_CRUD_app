@@ -14,8 +14,9 @@ services:
     - MONGO_PASSWORD=${MONGO_PASSWORD}
     - SESSION_SECRET=${SESSION_SECRET}
     command: node app.js
-
+    
   mongo:
+    environment:
     - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
     - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
     
