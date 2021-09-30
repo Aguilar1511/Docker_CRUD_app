@@ -14,7 +14,7 @@ services:
     - mongo
 
   mongo:
-    image: mongo
+    image: mongo:4.4.9
     environment: 
      - MONGO_INITDB_ROOT_USERNAME=shivam
      - MONGO_INITDB_ROOT_PASSWORD=mypasswd
