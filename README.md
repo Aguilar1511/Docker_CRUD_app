@@ -7,7 +7,7 @@ Steps to deploy:
 - Now the repository is cloned.
 - Now start the docker engine on the local machine
 - Now using any cli navigate to the cloned folder
-- Run a docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up --build -d
+- Run a docker-compose -f docker-compose.yaml -f docker-compose.prod.yaml up --build -d
 - This will read the Dockerfile and the base docker-compose.yaml along with the docker-compose.dev.yaml.
 - This will spin up 4 containers (microservices) in detached mode
 - Now go to mongodb compass client, click on fill in connection fields manually
