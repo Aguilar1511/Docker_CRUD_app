@@ -9,5 +9,5 @@ RUN if [ "$NODE_ENV" = "development" ]; \
         fi
         
 ENV PORT 5000
-CMD ["node", "index.js"]
+CMD ["node", "app.js"]
 

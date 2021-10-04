@@ -8,14 +8,13 @@ services:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
   nodeapp:
     build : .
-    image: shishientlogics/nodeapp
     environment: 
     - PORT=3000
     depends_on: 
     - mongo
 
   mongo:
-    image: mongo:4.4.9
+    image: mongo
     environment: 
      - MONGO_INITDB_ROOT_USERNAME=shivam
      - MONGO_INITDB_ROOT_PASSWORD=mypasswd
