@@ -1,81 +1,60 @@
 # Docker_CRUD_app
 
- Go to github and copy this repo link https://github.com/Aguilar1511/Docker_CRUD_app.git
-Go to git bash on the local machine and do a git clone .
-Now the repository is cloned.
-Now start the docker engine on the local machine
-Now using any cli navigate to the cloned folder
-Run a 
-docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up --build -d
-This will read the Dockerfile and the base docker-compose.yaml along with the docker-compose.dev.yaml.
-This will spin up 4 containers (microservices) in detached mode
-Now go to mongodb compass client, click on fill in connection fields manually
+STEPS TO DEPLOY:
 
-Fill
-Port = 27016
-username=shivam
-password=mypasswd
-Click on connect
+1. Run a git clone https://github.com/Aguilar1511/Docker_CRUD_app.git 
 
-Now You are inside the container instance running onexposed port 27016.
- Click on create database rms
-Create a collection customers,restaurants,orders,waiters,dishes
-From the mongoDB_scripts folders import json files into each collection
-Now the database is loaded 
-Start docker engine
-Go to vs code open the cloned folder there.
-Open terminal
-Run docker-compose -f docker-compose.yaml -f docker compose.dev.yaml up --build -d --scale=2
+2. Navigate to the cloned folder
 
- Now nginx,redis,nodeapp=2,mongo containers are up and running
-Go to postman and check the responses
-localhost:3000/api
-CRUD operations routes below
-localhost:3000/api/restaurants
-localhost:3000/api/restaurants/:id
-localhost:3000/api/customers
-localhost:3000/api/customers/:id
-localhost:3000/api/v1/users/login
-localhost:3000/orders/:id
-localhost:3000/api/waiters
-localhost:3000/api/waiters/:id
-localhost:3000/api/dishes
-localhost:3000/api/dishes/:id
-20. For checking redis user sign up
-localhost:3000/api/v1/users/signup
-This creates a users table in the mongo db and logs this user and its hashed password
-It creates a session cookie as soon as the users signup
+3. Run a docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up --build -d --scale nodeapp=2
+
+4. Run docker ps
+
+5. Check for 5 container services running
+
+6. Open mongodb compass client,fill connection fields Port = 27016,username=shivam,password=mypasswd and click to connect.
+
+7. Create database rms
+
+8. Create a collection customers,restaurants,orders,waiters,dishes
+
+9. From the mongoDB_scripts folders import json files into each collection
 
 
+TESTING:
 
+1. Nodeapp 
+ *CRUD operations routes below
+- GET localhost:3000/api
+- GET localhost:3000/api/restaurants
+- GET localhost:3000/api/restaurants/:id
+- GET localhost:3000/api/customers
+- GET localhost:3000/api/customers/:id
+- POST localhost:3000/api/v1/users/signup
+- POST localhost:3000/api/v1/users/login
+- GET localhost:3000/orders/:id
+- GET localhost:3000/api/waiters
+- GET localhost:3000/api/waiters/:id
+- GET localhost:3000/api/dishes
+- GET localhost:3000/api/dishes/:id
 
-     21.  User login caching with redis
-  
+ 2. Redis caching
+ 
+- hit uri localhost:3000/api/v1/users/signup
+- This creates a users table in the mongo db and logs this user and its hashed password
+- It creates a session cookie as soon as the users signup
+- Run docker ps,and note the redis containerid
+- Run docker exec -it <container_id> bash
+- Run redis-cli ,inside the bash
+- Using postman post at uri localhost:3000/api/v1/users/login (req body(json) username=shivam password=password )
+- Run KEYS * 
+- You will see a session cache being created.
 
-
-Go to terminal do a docker ps
-Login to the redis container
-Run redis-cli inside the bash
-Now go to postman
-Enter a post route     localhost:3000/api/v1/users/login 
-Send the request
-Go back to terminal and do a KEYS * 
-You will see a session cache being created
-The session cookie is only configured for 30 secs, can be changed from app.js (note)
-
-
-
-
-
-22. Nginx load balancing
-Bring down the containers, run
-  docker-compose -f docker-compose.yaml -f   docker-compose.dev.yaml down
- Scale 2 nodeapp containers for nginx to load balance
-Run , docker-compose -f docker-compose.yaml -f docker compose.dev.yaml up --build -d --scale=2
-Open vs code terminal in , a terminal split screen
-Do a docker ps
-Tail logs of nodeapp1 in detached mode one terminal, and nodeapp2 in another terminal
-Now go to postman and hit localhost:3000/api multiple times
-Check the terminals , you can see ( yeah it ran ) being printed on the logs of the two nodeapp running containers
+ 3. Nginx load balancing
+ 
+- Run docker ps, note nodeapp containerids
+- Run docker logs -ft <containerid> Tail logs of nodeapp1 in detached mode one terminal, and nodeapp2 in another terminal
+- Using postman hit POST localhost:3000/api multiple times
+- Check the terminals , you can see ( yeah it ran ) being printed on the logs of the two nodeapp running containers
 
 
